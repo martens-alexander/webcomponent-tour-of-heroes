@@ -2,8 +2,9 @@
   "name": "webcomponent-tour-of-heroes",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
+    "start": "npx snowpack && npx servor --reload",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
