@@ -1,6 +1,6 @@
 /* define variable  */
 * {
-    --hero-color: green;
+    --primary: lightblue;
 }
 
 h2{
@@ -59,7 +59,7 @@ footer{
 }
 section{
     grid-area:section;
-    background-color: lightsalmon;
+    background-color: white;
 }
 
 h-hero-detail{

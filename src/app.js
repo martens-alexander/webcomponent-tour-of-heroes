@@ -3,11 +3,13 @@ import { html, render } from '../web_modules/lit-html.js';
 
 class View extends HTMLElement { 
 
+
     constructor() { 
         super();
         this.root = this.attachShadow({mode:"open"});
-        this.heroes = ['spiderman', 'antman', 'batman']
+        this.heroes = [];
         this.state = 'empty';
+        this.load();
     }
 
     connectedCallback() { 
@@ -15,19 +17,22 @@ class View extends HTMLElement {
     
     }
     render() { 
+        console.log('render ', this.state);
         const template = html`
         <style>
             h2{
                 color: red;
             }
+            .hero-list{
+                display: flex;
+                flex-direction: column;
+            }
         </style>
         <h2>hello ${this.state}</h2>
+       <div class="hero-list">
+       ${this.heroes.map(h => this.heroeDetail(h))}
+       </div>
        
-        <h-hero-detail></h-hero-detail>
-        <h-hero-detail></h-hero-detail>
-        <button @click="${_ => this.load()}">change tile with hero from fetch</button>
-        
-        ${this.heroes.map(h => this.heroeDetail(h))}
         <button @click="${_ => this.addHero()}">add hero</button>
         `;
 
@@ -35,21 +40,21 @@ class View extends HTMLElement {
     }
 
     addHero(){
-        this.heroes = [...this.heroes, 'thor'];
+        // this.heroes = [...this.heroes, 'thor'];
         this.render();
     }
 
     heroeDetail(hero){
         return html`
-        <div>HERO: ${hero}</div>
+        <h-hero-detail hero="${JSON.stringify(hero)}"></h-hero-detail>
         `
     }
 
     async load() { 
         const response = await fetch('src/heroes.json');
         const json = await response.json();
-        const { name } = json;
-        this.state = name;
+    
+        this.heroes = [...json];
         this.render();
     }
 }
