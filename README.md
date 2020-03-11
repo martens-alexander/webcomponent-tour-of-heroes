@@ -8,9 +8,10 @@ Setup
 2) npm start 
 
 TODO features
-- [ ] Hero List of Hero Small Details
+TODO features
+- [x] Hero List of Hero Small Details
 - [ ] add Hero to list (input + add-button)
 - [ ] Detailview below/next to list on hero clicked
-- [ ] Routed Detailview /heroes/{id}
-
+- [x] Routed Detailview /heroes/{id}
+- [ ] Routing back and forth via browser history and jump directly to /heroes/{id}
 

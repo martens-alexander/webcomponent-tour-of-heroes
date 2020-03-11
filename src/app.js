@@ -8,8 +8,8 @@ class View extends HTMLElement {
         super();
         this.root = this.attachShadow({mode:"open"});
         this.heroes = [];
-        this.state = 'empty';
         this.load();
+        this.router = document.querySelector('h-router');
     }
 
     connectedCallback() { 
@@ -17,7 +17,6 @@ class View extends HTMLElement {
     
     }
     render() { 
-        console.log('render ', this.state);
         const template = html`
         <style>
             h2{
@@ -28,23 +27,17 @@ class View extends HTMLElement {
                 flex-direction: column;
             }
         </style>
-        <h2>hello ${this.state}</h2>
+        <h2>All Heroes</h2>
        <div class="hero-list">
-       ${this.heroes.map(h => this.heroeDetail(h))}
+            ${this.heroes.map(h => this.heroDetail(h))}
        </div>
-       
-        <button @click="${_ => this.addHero()}">add hero</button>
         `;
 
         render(template,this.root);
     }
+  
 
-    addHero(){
-        // this.heroes = [...this.heroes, 'thor'];
-        this.render();
-    }
-
-    heroeDetail(hero){
+    heroDetail(hero){
         return html`
         <h-hero-detail hero="${JSON.stringify(hero)}"></h-hero-detail>
         `

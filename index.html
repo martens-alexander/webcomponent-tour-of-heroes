@@ -10,10 +10,27 @@
   <main>
     <header>Tour of Heroes with Webcomponent</header>
     <nav>menu</nav>
-    <section><h-root></h-root></section>
+    <section>
+      <h-router>
+        <h-route 
+        path="/heroes" 
+        title="Heroes" 
+        component="h-root">
+      </h-route>
+      <h-route 
+      path="/hero/:id" 
+      title="Hero Detail" 
+      component="h-hero-detail-view">
+    </h-route>
+      <h-router-outlet>
+      </h-router-outlet>
+    </h-router>
+  </section>
     <footer>copyright</footer> 
   </main>
   <script src="src/app.js" type="module"></script>
   <script src="src/hero-detail.js" type="module"></script>
+  <script src="src/hero-detail-view.js" type="module"></script>
+  <script src="src/router.js" type="module"></script>
 </body>
 </html>
