@@ -8,7 +8,6 @@ Setup
 2) npm start 
 
 TODO features
-TODO features
 - [x] Hero List of Hero Small Details
 - [ ] add Hero to list (input + add-button)
 - [ ] Detailview below/next to list on hero clicked
