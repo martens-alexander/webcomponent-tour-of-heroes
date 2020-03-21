@@ -46,5 +46,5 @@ navigateToHero(hero){
 }
 
 }
-customElements.define('h-hero-detail', HeroDetail);
+customElements.define('h-hero-widget', HeroDetail);
 
