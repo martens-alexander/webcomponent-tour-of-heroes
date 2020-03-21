@@ -9,7 +9,7 @@ Setup
 
 TODO features
 - [x] Hero List of Hero Small Details
-- [ ] add Hero to list (input + add-button)
+- [x] add Hero to list (input + add-button)
 - [ ] Detailview below/next to list on hero clicked
 - [x] Routed Detailview /heroes/{id}
 - [ ] Routing back and forth via browser history and jump directly to /heroes/{id}
