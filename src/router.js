@@ -49,20 +49,31 @@ function match(routes, uri) {
   return match || null;
 }
 
+const removeHash = (val) => val.slice(1);
+
+function locationHashChanged() {
+  const router = document.querySelector('h-router')
+  router.navigate(removeHash(location.hash));
+}
+window.onhashchange = locationHashChanged;
 
 export default class Router extends HTMLElement {
-  
+
 
     navigate(url) {            
         const matchedRoute = match(this.routes, url);
-            if (matchedRoute !== null) {
-                this.activeRoute = matchedRoute;
-                window.history.pushState(null, null, url);    
-                this.update();
-            }
+        if(!matchedRoute){
+          this.activeRoute = this.routes[0];
+          window.history.pushState(null, null, '/#'+this.activeRoute.path);    
+        }else{
+          this.activeRoute = matchedRoute;
+          window.history.pushState(null, null, '/#'+url);    
+        }
+               
+        this.update();
       }
       connectedCallback() { 
-        this.navigate(window.location.pathname);     
+        this.navigate(removeHash(location.hash));     
       }
 
     get routes() {    

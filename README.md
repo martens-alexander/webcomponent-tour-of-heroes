@@ -12,5 +12,5 @@ TODO features
 - [x] add Hero to list (input + add-button)
 - [ ] Detailview below/next to list on hero clicked
 - [x] Routed Detailview /heroes/{id}
-- [ ] Routing back and forth via browser history and jump directly to /heroes/{id}
+- [x] Routing back and forth via browser history and jump directly to /heroes/{id}
 

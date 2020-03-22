@@ -40,7 +40,7 @@ class View extends HTMLElement {
     }
   
     addHero(){
-        this.router.navigate('hero/create');
+        this.router.navigate('/heroes/create');
     }
 
     heroDetail(hero){

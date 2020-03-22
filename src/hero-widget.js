@@ -42,7 +42,7 @@ render(){
 }
 
 navigateToHero(hero){
-    this.router.navigate('hero/' + hero.id);
+    this.router.navigate('/heroes/' + hero.id);
 }
 
 }
