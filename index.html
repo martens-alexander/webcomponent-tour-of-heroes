@@ -7,9 +7,21 @@
 </head>
 
 <body>
-  <main>
-    <header>Tour of Heroes with Webcomponent</header>
-    <nav>menu</nav>
+ 
+    <header>
+      <nav>
+        <div class="navbar-title">
+          <a href="/">Tour of Heroes</a>
+        </div>
+        
+        <div class="navbar-links">
+          <a href="https://github.com/almartens/webcomponent-tour-of-heroes">Github</a>
+        </div>
+      
+      </nav>
+    </header>
+    <main>
+    <nav></nav>
     <section>
       <h-router>
         <h-route 
@@ -26,7 +38,7 @@
       </h-router-outlet>
     </h-router>
   </section>
-    <footer>copyright</footer> 
+    <footer></footer> 
   </main>
   <script src="src/heroes.js" type="module"></script>
   <script src="src/hero-widget.js" type="module"></script>

@@ -31,11 +31,10 @@ render(){
         border-radius: 5px;
         margin: 5px;
         padding-left: 5px;
-       
     }
         </style>
             <div><span>ID: ${this.hero?.id} Name: ${this.hero?.name}</span>
-            <button @click="${_ => this.navigateToHero(this.hero)}">go to</button>
+            <button @click="${_ => this.navigateToHero(this.hero)}">Edit</button>
             </div>     
     `;
     render(template, this.root);

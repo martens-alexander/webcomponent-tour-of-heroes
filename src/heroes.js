@@ -27,9 +27,10 @@ class View extends HTMLElement {
             .hero-list{
                 display: flex;
                 flex-direction: column;
+                width: 50%
             }
         </style>
-        <h2>All Heroes</h2>
+        <h2>All Heroes</h2> 
        <div class="hero-list">
             ${this.heroes.map(h => this.heroDetail(h))}
        </div>
