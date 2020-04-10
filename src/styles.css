@@ -10,30 +10,11 @@ h2{
 main{
     display: grid;
     height: 100vh;
+    margin: 0 auto;
     width: calc(100% - 100px);
     grid-template-areas:
-    "nav section"
-    "footer footer"
-}
-
-@media screen and (max-width: 30rem ){
-    main{
-        width: calc(100% - 20px);
-        grid-template-areas:
-        "header"
-        "nav"
-        "section"
-        "footer"
-    }
-}
-@media screen and (min-width: 30rem ){
-    main{
-        grid-template-rows: 4fr 1fr;
-        grid-template-columns: 1fr 5fr;
-        grid-template-areas:
-        "nav section"
-        "footer footer"
-    }
+    "section"
+    "footer"
 }
 
 
@@ -46,16 +27,6 @@ header{
     height: 50px;
 }
 
-header nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
 main nav{
     grid-area:nav;
 }
@@ -65,9 +36,15 @@ footer{
 }
 section{
     grid-area:section;
-    background-color: white;
 }
 
-h-hero-detail{
-    background-color: brown;
+
+body {
+    font-family: 'Courier New', Courier, monospace;
 }
+
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+  }

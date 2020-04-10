@@ -1,5 +1,5 @@
 
-import { html, render } from '../web_modules/lit-html.js';
+import { html, render } from '../../web_modules/lit-html.js';
 import { getAll } from './hero.data.js';
 
 class View extends HTMLElement { 
@@ -21,20 +21,22 @@ class View extends HTMLElement {
     render() { 
         const template = html`
         <style>
-            h2{
-                color: red;
-            }
             .hero-list{
                 display: flex;
                 flex-direction: column;
-                width: 50%
+                width: 100%
             }
         </style>
-        <h2>All Heroes</h2> 
-       <div class="hero-list">
-            ${this.heroes.map(h => this.heroDetail(h))}
-       </div>
-       <div><button @click="${_ => this.addHero()}">Add</button></div>
+
+        <article>
+        <h1>All Heroes</h1> 
+        
+        <section class="hero-list">
+                ${this.heroes.map(h => this.heroDetail(h))}
+        </section>
+
+       <p><button @click="${_ => this.addHero()}">Add</button></p>
+       <article>
         `;
 
         render(template,this.root);

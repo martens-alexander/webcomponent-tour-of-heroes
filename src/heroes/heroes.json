@@ -1,0 +1,32 @@
+[{
+    "id": 1,
+    "name":"Superman",
+    "description":"Superman was born on the planet Krypton and was given the name Kal-El at birth. As a baby, his parents sent him to Earth in a small spaceship moments before Krypton was destroyed in a natural cataclysm."
+
+},
+{
+    "id": 2,
+    "name":"Batman",
+    "description":"Batman's secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. Batman originated from an incident in Bruce's childhood; after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice."
+},
+{
+    "id": 3,
+    "name":"Thor",
+    "description":"In Germanic mythology, Thor (/θɔːr/; from Old Norse: Þórr, runic ᚦᚢᚱ þur) is a hammer-wielding god associated with thunder, lightning, storms, sacred groves and trees, strength, the protection of mankind and also hallowing and fertility. "
+},
+{
+    "id": 4,
+    "name":"Spiderman",
+    "description":"When Spider-Man first appeared in the early 1960s, teenagers in superhero comic books were usually relegated to the role of sidekick to the protagonist. The Spider-Man series broke ground by featuring Peter Parker, a high school student from Queens behind Spider-Man's secret identity and with whose \"self-obsessions with rejection, inadequacy, and loneliness\" young readers could relate."
+},
+{
+    "id": 5,
+    "name":"Aquaman",
+    "description":"The character's original 1960s animated appearances left a lasting impression, making Aquaman widely recognized in popular culture and one of the world's most recognized superheroes. Jokes about his wholesome, weak portrayal in Super Friends and perceived feeble powers and abilities have been staples of comedy programs and stand-up routines,[3][4][5] leading DC at several times to attempt to make the character edgier or more powerful in comic books."
+},
+{
+    "id": 6,
+    "name":"Captain America",
+    "description":"The character wears a costume bearing an American flag motif, and he utilizes a nearly indestructible shield that he throws as a projectile. Captain America is the alter ego of Steve Rogers, a frail young man enhanced to the peak of human perfection by an experimental serum to aid the United States government's efforts in World War II. "
+}
+]

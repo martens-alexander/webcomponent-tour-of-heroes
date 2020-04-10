@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
   <title>Tour of Heroes</title>
   <link rel="stylesheet" href="src/styles.css">
+  <meta name="author" content="Alexander Martens">
+  <meta name="description" content="The famous Tour of Heroes with Webcomponents">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+
+  <meta charset="utf-8">
 </head>
 
 <body>
- 
     <header>
-      <nav>
-        <div class="navbar-title">
-          <a href="/">Tour of Heroes</a>
-        </div>
-        
-        <div class="navbar-links">
-          <a href="https://github.com/almartens/webcomponent-tour-of-heroes">Github</a>
-        </div>
-      
-      </nav>
+      <h-navbar></h-navbar>
     </header>
     <main>
-    <nav></nav>
     <section>
       <h-router>
         <h-route 
@@ -34,15 +31,17 @@
       title="Hero Detail" 
       component="h-hero">
     </h-route>
-      <h-router-outlet>
-      </h-router-outlet>
+      <h-router-outlet></h-router-outlet>
     </h-router>
+
+   
   </section>
-    <footer></footer> 
   </main>
-  <script src="src/heroes.js" type="module"></script>
-  <script src="src/hero-widget.js" type="module"></script>
-  <script src="src/hero.js" type="module"></script>
+  <footer></footer> 
+  <script src="src/heroes/heroes.js" type="module"></script>
+    <script src="src/heroes/hero-widget.js" type="module"></script>
+    <script src="src/heroes/hero-edit.js" type="module"></script>
   <script src="src/router.js" type="module"></script>
+  <script src="src/navbar/navbar.js" type="module"></script>
 </body>
 </html>

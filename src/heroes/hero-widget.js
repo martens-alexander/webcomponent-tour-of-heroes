@@ -1,6 +1,6 @@
 
-import { html, render } from '../web_modules/lit-html.js';
-export default class HeroDetail extends HTMLElement {
+import { html, render } from '../../web_modules/lit-html.js';
+export default class HeroWidgetView extends HTMLElement {
 
 constructor(){
     super();
@@ -33,9 +33,12 @@ render(){
         padding-left: 5px;
     }
         </style>
-            <div><span>ID: ${this.hero?.id} Name: ${this.hero?.name}</span>
-            <button @click="${_ => this.navigateToHero(this.hero)}">Edit</button>
-            </div>     
+        
+            <article>
+                <h2> ${this.hero?.name}<h3>
+                <blockquote>${this.hero.description}</blockquote>
+                <button @click="${_ => this.navigateToHero(this.hero)}">Edit</button>
+            </article>     
     `;
     render(template, this.root);
 }
@@ -45,5 +48,5 @@ navigateToHero(hero){
 }
 
 }
-customElements.define('h-hero-widget', HeroDetail);
+customElements.define('h-hero-widget', HeroWidgetView);
 
