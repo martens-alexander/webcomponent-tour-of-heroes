@@ -61,8 +61,6 @@ connectedCallback(){
 attributeChangedCallback(name, oldValue, newValue) {
    if(name === 'id' && newValue > 0){
        this.loadHero(newValue);
-   }else{
-        name.setCustomValidity("Please provide a name for the hero!");
    }
   }
 

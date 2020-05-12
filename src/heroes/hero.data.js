@@ -4,24 +4,31 @@ function updateStorage(heroes){
     localStorage.setItem(storageKey, JSON.stringify(heroes));
 }
 
-(async function initStorage(){
+function clearStorage(){
+    localStorage.clear(storageKey);
+}
+
+async function initStorage(){
     const storage = localStorage.getItem(storageKey);
     if(!storage){
         const response = await fetch('src/heroes/heroes.json');
         const heroes = await response.json();
         updateStorage(heroes);
     }
-})();
+};
+initStorage();
 
-const idComparator = (a, b) => a.id - b.id;
+const idComparatorAsc = (a, b) => a.id - b.id;
+const idComparatorDesc = (a, b) => b.id - a.id;
 
 
 export async function getAll(){
-    const storage = localStorage.getItem(storageKey)
-    if(!storage){
+    if(!localStorage.getItem(storageKey)){
         await initStorage();
     }
-    return JSON.parse(storage).sort(idComparator);
+    const storage = localStorage.getItem(storageKey)
+
+    return JSON.parse(storage).sort(idComparatorDesc);
 }    
 
 export async function findById(id){
@@ -30,7 +37,7 @@ export async function findById(id){
 }
 
 function getMaxId(heroes){
-    return !!heroes && heroes.length > 0 ? heroes.sort(idComparator)[heroes.length-1].id : 0
+    return !!heroes && heroes.length > 0 ? heroes.sort(idComparatorAsc)[heroes.length-1].id : 0
 }
 
 export async function save(hero){
@@ -45,4 +52,8 @@ export async function save(hero){
 
     updateStorage(updatedHeroes);
     return hero;
+}
+
+export async function reset(){
+    clearStorage();
 }

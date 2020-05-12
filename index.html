@@ -19,7 +19,10 @@
       <h-navbar></h-navbar>
     </header>
     <main>
-    <section>
+      <nav>
+        <h-menu></h-menu>
+      </nav>
+    
       <h-router>
         <h-route 
         path="/heroes" 
@@ -31,11 +34,12 @@
       title="Hero Detail" 
       component="h-hero">
     </h-route>
+    
+    <section>
       <h-router-outlet></h-router-outlet>
+    </section>
     </h-router>
 
-   
-  </section>
   </main>
   <footer></footer> 
   <script src="src/heroes/heroes.js" type="module"></script>
@@ -43,5 +47,6 @@
     <script src="src/heroes/hero-edit.js" type="module"></script>
   <script src="src/router.js" type="module"></script>
   <script src="src/navbar/navbar.js" type="module"></script>
+  <script src="src/menu/menu.js" type="module"></script>
 </body>
 </html>

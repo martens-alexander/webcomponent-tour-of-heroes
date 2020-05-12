@@ -22,6 +22,8 @@ class View extends HTMLElement{
             height: 100%;
             padding-left: 5px;
             padding-right: 5px;
+    
+    
         }
     </style>
     <nav>

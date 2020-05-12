@@ -32,12 +32,27 @@ render(){
         margin: 5px;
         padding-left: 5px;
     }
+    a {
+        background-color: var(--primary);
+        padding: 5px;
+
+        margin-bottom: 3px;
+        display: inline-block;
+      text-decoration: underline;
+    }
+    a:hover{
+      text-decoration: none;
+    }
+    .hero-description{
+        line-height: 1.6;
+        text-indent: 10px;
+    }
+    
         </style>
-        
             <article>
-                <h2> ${this.hero?.name}<h3>
-                <blockquote>${this.hero.description}</blockquote>
-                <button @click="${_ => this.navigateToHero(this.hero)}">Edit</button>
+                <h3>${this.hero?.name}</h3>
+                <p class="hero-description">${this.hero.description}</p>
+                <p><a href="#/heroes/${this.hero.id}">Edit</a></p>
             </article>     
     `;
     render(template, this.root);

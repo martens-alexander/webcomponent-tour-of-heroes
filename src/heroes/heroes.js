@@ -24,7 +24,9 @@ class View extends HTMLElement {
             .hero-list{
                 display: flex;
                 flex-direction: column;
-                width: 100%
+            }
+            h1{
+                text-align: center;
             }
         </style>
 
@@ -35,16 +37,12 @@ class View extends HTMLElement {
                 ${this.heroes.map(h => this.heroDetail(h))}
         </section>
 
-       <p><button @click="${_ => this.addHero()}">Add</button></p>
        <article>
         `;
 
         render(template,this.root);
     }
-  
-    addHero(){
-        this.router.navigate('/heroes/create');
-    }
+
 
     heroDetail(hero){
         return html`

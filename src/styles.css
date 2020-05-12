@@ -1,7 +1,9 @@
 /* define variable  */
 * {
     --primary: darkturquoise;
+    --secondary: cyan;
 }
+
 
 h2{
     color: var(--hero-color);
@@ -10,11 +12,10 @@ h2{
 main{
     display: grid;
     height: 100vh;
-    margin: 0 auto;
-    width: calc(100% - 100px);
+    width: calc(100% - 50px);
     grid-template-areas:
-    "section"
-    "footer"
+    "nav section"
+    "footer footer"
 }
 
 
@@ -25,10 +26,18 @@ header{
     margin-left: -8px;
     margin-right: -8px;
     height: 50px;
+    width: 100%;
+
+    position: sticky;
+    top: 0;
+
 }
+
 
 main nav{
     grid-area:nav;
+    min-width: 200px;
+    margin-right: -8px;
 }
 
 footer{
@@ -42,6 +51,7 @@ section{
 body {
     font-family: 'Courier New', Courier, monospace;
 }
+
 
 
 button, input, select, textarea {
