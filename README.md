@@ -1,6 +1,6 @@
 # webcomponent-tour-of-heroes
 
-WIP building the tour of heroes with lithtml.
+Playground for trying out webcomponents
 
 Setup
 
@@ -8,9 +8,12 @@ Setup
 2) npm start 
 
 TODO features
-- [x] Hero List of Hero Small Details
+- [x] Hero List with Details
 - [x] add Hero to list (input + add-button)
-- [ ] Detailview below/next to list on hero clicked
 - [x] Routed Detailview /heroes/{id}
 - [x] Routing back and forth via browser history and jump directly to /heroes/{id}
+- [x] Edit Hero
+- [x] Delete Hero
+- [x] Reset Heroes
+- [ ] 
 
