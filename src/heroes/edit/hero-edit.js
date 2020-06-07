@@ -1,9 +1,7 @@
-import { html, render } from '../../web_modules/lit-html.js';
-import * as heroService from './hero.data.js';
+import { html, render } from '../../../web_modules/lit-html.js';
+import * as heroService from '../shared/hero.data.js';
 
 export default class HeroEditView extends HTMLElement {
-
-
    set nameInput(value){
         this.root.getElementById("name").value = value;
    }
@@ -49,11 +47,9 @@ connectedCallback(){
     }
     });
  
-
     const form = this.root.getElementById("form");
     form.addEventListener( "submit", function ( event ) {
         event.preventDefault();
-
         this.save();
       }.bind(this) );
 }
@@ -78,19 +74,11 @@ attributeChangedCallback(name, oldValue, newValue) {
 render(){
     const template = html`
     <style>
-    div{
-        background-color: var(--primary);
-        border-radius: 5px;
-        margin: 5px;
-        padding-left: 5px;
-        height: 100%
-       
-    }
-    input:invalid {
-        border: 2px dashed red;
-      }
+            @import "../../../src/styles.css";
         </style>
+    
             <form id="form">
+            <article>
             <h1>${this.hero?.id ? 'Edit' : 'Create a new Hero'} ${this.hero?.name}</h1>
             <section>
             <p>
@@ -103,7 +91,7 @@ render(){
              </p>
             <p>
              <label for="description">Description:</label>
-             <textarea name="description" id="description" rows="5"cols="50" placeholder="Describe your Hero..."></textarea>
+             <textarea name="description" id="description" rows="5" cols="30" placeholder="Describe your Hero..."></textarea>
              </p>
 
              </section>
@@ -111,6 +99,7 @@ render(){
              <button type="submit">Save</button>
              <button type="button" @click="${_ => this.goBack()}">Cancel</button>
              </p>
+             </article>
             </form>
             
            

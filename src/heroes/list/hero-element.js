@@ -1,5 +1,7 @@
 
-import { html, render } from '../../web_modules/lit-html.js';
+import { html, render } from '../../../web_modules/lit-html.js';
+import * as heroService from '../shared/hero.data.js';
+
 export default class HeroWidgetView extends HTMLElement {
 
 constructor(){
@@ -14,6 +16,11 @@ static get observedAttributes() {
 
 connectedCallback(){
     this.render();
+
+    const form = this.root.getElementById("delete");
+    form.addEventListener( "click", function ( event ) {
+        event.preventDefault();
+      });
 }
 
 attributeChangedCallback(name, oldValue, newValue) {
@@ -26,33 +33,20 @@ attributeChangedCallback(name, oldValue, newValue) {
 render(){
     const template = html`
     <style>
-    div{
-        background-color: var(--primary);
-        border-radius: 5px;
-        margin: 5px;
-        padding-left: 5px;
-    }
-    a {
-        background-color: var(--primary);
-        padding: 5px;
+    @import "../../../src/styles.css";
 
-        margin-bottom: 3px;
-        display: inline-block;
-      text-decoration: underline;
-    }
-    a:hover{
-      text-decoration: none;
-    }
     .hero-description{
         line-height: 1.6;
         text-indent: 10px;
     }
-    
         </style>
             <article>
                 <h3>${this.hero?.name}</h3>
                 <p class="hero-description">${this.hero.description}</p>
-                <p><a href="#/heroes/${this.hero.id}">Edit</a></p>
+                <p>
+                <a href="#/heroes/${this.hero.id}">Edit</a>
+                <a id="delete" href="" @click="${_ => this.deleteHero(this.hero)}">Delete</a>
+                </p>
             </article>     
     `;
     render(template, this.root);
@@ -62,6 +56,14 @@ navigateToHero(hero){
     this.router.navigate('/heroes/' + hero.id);
 }
 
+async deleteHero(hero){
+    const confirm = window.confirm('Do you really want to delete ' + hero.name + '?');
+    if(confirm){
+        await heroService.deleteHero(hero);
+        this.parentElement.removeChild(this);
+    }
 }
-customElements.define('h-hero-widget', HeroWidgetView);
+
+}
+customElements.define('h-hero-element', HeroWidgetView);
 

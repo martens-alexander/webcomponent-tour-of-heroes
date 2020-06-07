@@ -1,5 +1,5 @@
 import { html, render } from '../../web_modules/lit-html.js';
-import { reset } from '../heroes/hero.data.js';
+import * as heroService from '../heroes/shared/hero.data.js';
 
 class View extends HTMLElement { 
 
@@ -13,35 +13,26 @@ class View extends HTMLElement {
     connectedCallback() { 
         this.render();
     
+        const resetLink = this.root.getElementById("reset-heroes-link");
+        resetLink.addEventListener("click", event => event.preventDefault());
     }
     render() { 
         const template = html`
         <style>
+        @import "../../../src/styles.css";
         li {
             list-style: none;
           }
           ul {
             padding-left: 0;
           }
-          a {
-              background-color: var(--primary);
-              padding: 5px;
-            
-              margin-bottom: 3px;
-              display: inline-block;
-            text-decoration: underline;
-          }
-          a:hover{
-            text-decoration: none;
-          }
         </style>
         <h2>Menu</h2>
         <ul>
         <li><a href="#/heroes" @click="${_ => this.routeToHeroes()}">All Heroes</a></li>
         <li><a href="#/heroes/create" @click="${_ => this.routeToCreate()}">Create a Hero</a></li>
-        <li><a href="" @click="${_ => this.resetHeroes()}">Reset Hero List</a></li>
+        <li><a id="reset-heroes-link" href="" @click="${_ => this.resetHeroes()}">Reset Hero List</a></li>
         </ul>
-       
         `;
 
         render(template,this.root);
@@ -54,9 +45,9 @@ routeToCreate(){
     this.router.navigate('/heroes/create');
 }
 resetHeroes(){
-  reset();
+  heroService.reset();
   this.router.navigate('/heroes');
 }
 
 }
-customElements.define('h-menu',View);
+customElements.define('h-menu', View);

@@ -3,17 +3,18 @@ import { html, render } from '../../web_modules/lit-html.js';
 class View extends HTMLElement{
     constructor() { 
         super();
-        this.root = this.attachShadow({mode:"open"});
+        this.root = this.attachShadow({mode:"closed"});
      
     }
 
     connectedCallback() { 
         this.render();
-    
     }
+
     render() { 
         const template = html`
         <style>
+        @import "../../../src/styles.css";
         nav{
             display: flex;
             flex-direction: row;
@@ -22,8 +23,6 @@ class View extends HTMLElement{
             height: 100%;
             padding-left: 5px;
             padding-right: 5px;
-    
-    
         }
     </style>
     <nav>
@@ -33,10 +32,10 @@ class View extends HTMLElement{
       <div class="navbar-links">
         <a href='https://github.com/almartens/webcomponent-tour-of-heroes' title="Source Code" target="_blank">Github</a>
       </div>
-      </nav
+      </nav>
         `;
 
         render(template,this.root);
     }
 }
-customElements.define('h-navbar', View);
+customElements.define('h-navbar-info', View);

@@ -10,43 +10,41 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
 
-
   <meta charset="utf-8">
 </head>
 
 <body>
     <header>
-      <h-navbar></h-navbar>
+      <h-navbar-info></h-navbar-info>
     </header>
-    <main>
+  
       <nav>
         <h-menu></h-menu>
       </nav>
     
-      <h-router>
-        <h-route 
-        path="/heroes" 
-        title="Heroes" 
-        component="h-root">
-      </h-route>
-      <h-route 
-      path="/heroes/:id" 
-      title="Hero Detail" 
-      component="h-hero">
-    </h-route>
-    
-    <section>
-      <h-router-outlet></h-router-outlet>
-    </section>
-    </h-router>
+      <main>
+          <h-router>
+            <h-route 
+            path="/heroes" 
+            title="Heroes" 
+            component="h-hero-list">
+          </h-route>
+          <h-route 
+          path="/heroes/:id" 
+          title="Hero Detail" 
+          component="h-hero">
+        </h-route>
+        <h-router-outlet></h-router-outlet>
+        </h-router>
+    </main>
 
-  </main>
-  <footer></footer> 
-  <script src="src/heroes/heroes.js" type="module"></script>
-    <script src="src/heroes/hero-widget.js" type="module"></script>
-    <script src="src/heroes/hero-edit.js" type="module"></script>
+  <footer>  
+  </footer> 
+  <script src="src/heroes/list/hero-list.js" type="module"></script>
+    <script src="src/heroes/list/hero-element.js" type="module"></script>
+    <script src="src/heroes/edit/hero-edit.js" type="module"></script>
   <script src="src/router.js" type="module"></script>
-  <script src="src/navbar/navbar.js" type="module"></script>
+  <script src="src/navbar-info/navbar-info.js" type="module"></script>
   <script src="src/menu/menu.js" type="module"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 const storageKey = 'heroes';
+const pathToData = 'src/heroes/shared/data.json';
 
 function updateStorage(heroes){
     localStorage.setItem(storageKey, JSON.stringify(heroes));
@@ -11,7 +12,7 @@ function clearStorage(){
 async function initStorage(){
     const storage = localStorage.getItem(storageKey);
     if(!storage){
-        const response = await fetch('src/heroes/heroes.json');
+        const response = await fetch(pathToData);
         const heroes = await response.json();
         updateStorage(heroes);
     }
@@ -52,6 +53,12 @@ export async function save(hero){
 
     updateStorage(updatedHeroes);
     return hero;
+}
+
+export async function deleteHero(heroToDelete){
+    const heroes = await getAll();
+
+    updateStorage(heroes.filter(h => h.id !== heroToDelete.id));
 }
 
 export async function reset(){
